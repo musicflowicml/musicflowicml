@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="MusicFlow: Cascaded Flow Matching for Text Guided Music Generation">
+  <meta name="keywords" content="flow matching, music, generative models">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MusicFlow: Cascaded Flow Matching for Text Guided Music Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script> -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  
+  
+  <!-- <script>
+    //var para = document.getElementById("ppap");
+    //para.textContent+="BOOM1";
+    document.getElementById("ppap").innerHTML= "BOOM1";
+  </script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/loop_all_vids.js"></script> -->
+  <script src="./static/js/index.js"></script>
+  
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 10px; /* Adjust the padding value as needed */
+      border: 1px solid #dddddd;
+      text-align: left;
+      align-items: center;
+    }
+  </style>
+  
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div> 
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">MusicFlow: Cascaded Flow Matching for Text Guided Music Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a >Anonymous ICML 2024 submission</a></span>
+            
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Paper ID 6654</span>
+          </div>
+
+          <!--<div class="column has-text-centered">
+            <div class="publication-links">
+              <!~~ PDF Link. ~~>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!~~ Video Link. ~~>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!~~ Code Link. ~~>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!~~ Dataset Link. ~~>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+
+          </div>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">Nerfies</span> turns selfie videos from your phone into
+        free-viewpoint
+        portraits.
+      </h2>
+    </div>
+  </div>
+</section>-->
+
+<!-- <ul id="website_vids"></ul> -->
+
+
+<!-- <p id="ppap">BOOOM</p>
+<div id="video-container"></div>
+<div id="pagination">
+  <button id="previous-btn" disabled>&lt; Previous</button>
+  <button id="next-btn">Next &gt;</button>
+</div> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="hero-body" align="center">
+      <h2 class="subtitle has-text-centered">
+        <!-- <pre>(a) Video Source         (b) Wav2Lip          (c) PC-AVS          (d) Diff2Lip (ours)</pre> -->
+        <b>Text description:</b> kids song features groovy synth keys, chords, simple piano melody, echoing, shimmering shakers, muffled claps, soft kick hits and groovy bass. 
+        It sounds fun and happy - like something that children would listen to in their favorite tv shows.
+      </h2>
+      <audio id="teaser" controls>
+        <source src=
+                
+                
+                "./static/audios/tmabzx6yxqs.wav"
+                type="audio/wav"> Your browser does not support the audio element.
+      </audio>
+    </div>
+    <!--/ Paper video. -->
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce MusicFlow, a cascaded text-to-music generation model based on flow matching. Based on self-supervised representations to bridge between text descriptions and music audios, we construct two flow matching networks to model the conditional distribution of semantic and acoustic features. Additionally, we leverage masked prediction as the training objective, enabling the model to generalize to other tasks such as music infilling and continuation in a zero-shot manner. Experiments on MusicCaps reveal that the music generated by MusicFlow exhibits superior quality and text coherence despite being over 2-5x smaller and requiring 5x fewer iterative steps. Simultaneously, the model can perform other music generation tasks and achieves competitive performance in music infilling and continuation. Our code and model will be publicly available.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Text to Music <b>Generation</b></h2>
+    <!-- Paper video. -->
+    <table>
+      <thead>
+        <tr>
+          <th>Text description</th><th>Generated music piece</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>This music is a lively fiddle instrumental. The tempo is fast with a percussion accompaniment. The music is spirited, vibrant, enthusiastic,cheerful, happy , merry and sunny. This music is Country Folk.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/UFyOGqmITjM.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>Someone is playing a loud melody on a steeldrum along to a backing track with a lot of percussion and an upright bass. This song may be playing at a beach concert.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/xJYBA7VTkHA.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This music is an electric guitar instrumental. The tempo is slow with an electric guitar lead and harmony of a popular song. No other instrument is used. It is mellow, pleasant, nostalgic, soft , mellifluous and soothing.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/uQTCfT5XDzQ.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>The song is instrumental. The tempo is medium with sitars and other stringed instruments playing in unison, tabla percussions and a harmonium playing the lead. The song is a classic hindustaani instrumental.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/qsFfUzErXqw.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This music clip is a loud, boomy drum beat. The tempo is slow with the powerful and rhythmic beat of the Big Chinese drum. It is loud, resonating, vibrating and powerful and sounds ceremonial, celebratory and royal and used for announcements.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/oOiwmRV1PBk.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Text to Music <b>Continuation</b></h2>
+    <!-- Paper video. -->
+    <table>
+      <thead>
+        <tr>
+          <th>Text description</th><th>Music Prompt</th><th>Completed music piece (first 3 seconds are used as the prompt)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>This is a marching band piece performed by an orchestra. There are trumpets playing the main theme while tuba and cello are playing the bass notes. There is also a constant string part holding the root notes of the melody. The snare drums are playing an accentuated, militaristic drum line. There is an epic atmosphere that gives a call-to-action feeling. This piece could be used in the soundtracks of action movies and war movies in particular. It could also be used in the soundtracks of video games from the action and first-person-shootout genres.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/inp_cYRsnYEPIiM.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/cYRsnYEPIiM.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>The song is an instrumental. The song is medium fast tempo with a bass guitar soloist playing a cool accompaniment groove with no other instrumentation. The song is passionate and energetic. The song is a bass guitar demo or a home music video.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/inp_eM0PkfqGmIE.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/eM0PkfqGmIE.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This song contains mallet instruments playing a fast melody in the mid and high register along with low notes as bassline. The marimba is full of reverb. Then a bass drum comes in playing on every beat. This song may be playing in an advertisement.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/inp_jZkHpNnXLB0.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/jZkHpNnXLB0.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Text to Music <b>Infilling</b></h2>
+    <!-- Paper video. -->
+    <table>
+      <thead>
+        <tr>
+          <th>Text description</th><th>Music Prompt</th><th>Completed music piece (first and last 1.5 seconds are used as the prompt)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>An acoustic drum is playing a faster groove along with a bassline and a harmonica playing a chord on the offbeat and in a lower key. A e-guitar is playing a melody in the mid range. There are some background noises that remind me of someone brushing his/her teeth. This song may be playing live at a bar.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/inp_KdNhYvN4Xoo.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/KdNhYvN4Xoo.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This is an opening theme for a TV series. It is an instrumental piece. The main theme is being played by a loud brass section. There is a groovy synth bass line playing. The rhythmic background consists of a strong electronic drum beat. The atmosphere is energetic. This piece could be used in lifting samples for beat-making.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/inp_LCzldLY3E4g.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/LCzldLY3E4g.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This song is an instrumental. The tempo is medium with lively trumpets, trombone ,enthusiastic percussion like the snare, cymbals and bass drum, tambourine , an intense and bright string harmony of violins, viola and cello. The music is intense, serious and is gradually building up. This is an Orchestral piece.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/inp_vOAXAoHtl7o.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/vOAXAoHtl7o.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Comparisons with recent work</h2>
+    <!-- Paper video. -->
+    <table>
+      <thead>
+        <tr>
+          <th>Text description</th><th>MusicFlow (ours)</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>An acoustic drum is playing a faster groove along with a bassline and a harmonica playing a chord on the offbeat and in a lower key. A e-guitar is playing a melody in the mid range. There are some background noises that remind me of someone brushing his/her teeth. This song may be playing live at a bar.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/inp_KdNhYvN4Xoo.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/KdNhYvN4Xoo.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This is an opening theme for a TV series. It is an instrumental piece. The main theme is being played by a loud brass section. There is a groovy synth bass line playing. The rhythmic background consists of a strong electronic drum beat. The atmosphere is energetic. This piece could be used in lifting samples for beat-making.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/inp_LCzldLY3E4g.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/LCzldLY3E4g.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+        <tr>
+          <td>This song is an instrumental. The tempo is medium with lively trumpets, trombone ,enthusiastic percussion like the snare, cymbals and bass drum, tambourine , an intense and bright string harmony of violins, viola and cello. The music is intense, serious and is gradually building up. This is an Orchestral piece.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/inp_vOAXAoHtl7o.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/vOAXAoHtl7o.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+</body>
+</html>
