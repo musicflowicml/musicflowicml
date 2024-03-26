@@ -510,5 +510,76 @@
   </div>
 </section>
 
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">MusicFlow: Failures</h2>
+    <!-- Paper video. -->
+    <table>
+      <thead>
+        <tr>
+          <th>Text description</th><th>Generated Music Piece</th><th>Ground-truth</th><th style="width: 200px;">Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Percussions are playing together with a clarinet that takes the lead melody with very long notes. A bowed instrument is playing along with little fill-ins. An electric bass is playing a rather funky groove. The whole song sounds like it was made for dancing joyfully.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/sH_nDqYVq5E.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/sH_nDqYVq5E.flac"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td>Model is unable to decipher what instrument sounds to play</td>
+        </tr>
+        <tr>
+          <td>This music is instrumental. The tempo is slow with an electronic keyboard playing a simple, high pitched harmony. There are sounds in the background like whirring, whooshing and clicking. The music is not very clear as the audio clip is muffled, but it sounds like video game music or the music Ina child’s electronic toy.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/uwPeQy7ZtGo.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/uwPeQy7ZtGo.flac"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td>Model sometimes struggles to construct a clear, consistent rhythmic tune over longer stretches in time</td>
+        </tr>
+        <tr>
+          <td>This live recording features an instrumental song. This Regional Mexican song features an accordion playing the main melody. This is accompanied by an acoustic guitar strumming chords. A double bass plays the bass notes. A tambourine acts as the percussion. This song is in an upbeat mood. The song can be played at the entrance of a carnival.</td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/GPSqrciDLog.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/GPSqrciDLog.flac"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td>Model can sometimes produce tunes which are stuck on the same beat for long periods of time</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 </body>
 </html>
