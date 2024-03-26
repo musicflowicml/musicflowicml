@@ -60,6 +60,7 @@
       text-align: left;
       align-items: center;
     }
+    audio {width: 50px;}
   </style>
   
 </head>
@@ -119,7 +120,8 @@
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Paper ID 6654</span>
+            <span class="author-block">Paper ID 6654</span><br>
+            <span class="author-block"><b>Please use headphones for best experience!</b></span>
           </div>
 
           <!--<div class="column has-text-centered">
@@ -213,15 +215,13 @@
     <!-- Paper video. -->
     <div class="hero-body" align="center">
       <h2 class="subtitle has-text-centered">
-        <!-- <pre>(a) Video Source         (b) Wav2Lip          (c) PC-AVS          (d) Diff2Lip (ours)</pre> -->
-        <b>Text description:</b> kids song features groovy synth keys, chords, simple piano melody, echoing, shimmering shakers, muffled claps, soft kick hits and groovy bass. 
-        It sounds fun and happy - like something that children would listen to in their favorite tv shows.
+        <b>Text description:</b> This music is an energetic Rock and Roll instrumental. The tempo is fast with animated, infectious drumming, lively trumpets and tambourine beats. The music is upbeat, pulsating, thumping, vivacious, bright, with a perky dance groove. This music is Rock and Roll.
       </h2>
       <audio id="teaser" controls>
         <source src=
                 
                 
-                "./static/audios/tmabzx6yxqs.wav"
+                "./static/audios/OH2SQhJqZDg.wav"
                 type="audio/wav"> Your browser does not support the audio element.
       </audio>
     </div>
@@ -246,7 +246,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Text to Music <b>Generation</b></h2>
+    <h2 class="title is-3 has-text-centered">MusicFlow: Text to Music <b>Generation</b></h2>
     <!-- Paper video. -->
     <table>
       <thead>
@@ -257,7 +257,7 @@
       <tbody>
         <tr>
           <td>This music is a lively fiddle instrumental. The tempo is fast with a percussion accompaniment. The music is spirited, vibrant, enthusiastic,cheerful, happy , merry and sunny. This music is Country Folk.</td>
-          <td><audio id="teaser" controls>
+          <td style="width: 100px;"><audio id="teaser" controls>
             <source src=
                     
                     
@@ -313,7 +313,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Text to Music <b>Continuation</b></h2>
+    <h2 class="title is-3 has-text-centered">MusicFlow: Text to Music <b>Continuation</b></h2>
     <!-- Paper video. -->
     <table>
       <thead>
@@ -381,7 +381,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Text to Music <b>Infilling</b></h2>
+    <h2 class="title is-3 has-text-centered">MusicFlow: Text to Music <b>Infilling</b></h2>
     <!-- Paper video. -->
     <table>
       <thead>
@@ -446,7 +446,6 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Comparisons with recent work</h2>
@@ -454,60 +453,57 @@
     <table>
       <thead>
         <tr>
-          <th>Text description</th><th>MusicFlow (ours)</th><th></th>
+          <th style="width: 1000px;">Text description</th><th>MusicGEN</th><th>Audio-LDM2</th><th style="color: blue;">MusicFlow (ours)</th><th>Ground-truth</th><th style="width: 500px;">Comment</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>An acoustic drum is playing a faster groove along with a bassline and a harmonica playing a chord on the offbeat and in a lower key. A e-guitar is playing a melody in the mid range. There are some background noises that remind me of someone brushing his/her teeth. This song may be playing live at a bar.</td>
+          <td style="width: 1000px;">This instrumental is a Heavy Metal instrumental. The tempo is fast with hard hitting drumming, furious and vigorous amplified keyboard playing a harmony, electric bass guitar and electric guitar accompaniment. The music is intense, grim, compelling, passionate, powerful and harmonious. The vibe of the music is serious, sinister, grim and steely. This is used in Hard Rock/Heavy Metal.</td>
           <td><audio id="teaser" controls>
-            <source src=
-                    
-                    
-                    "./static/audios/infilling/inp_KdNhYvN4Xoo.wav"
-                    type="audio/wav"> Your browser does not support the audio element.
+            <source src="./static/audios/comp/u_TfWvyYY0Y 2_musicgen.wav" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
-            <source src=
-                    
-                    
-                    "./static/audios/infilling/KdNhYvN4Xoo.wav"
-                    type="audio/wav"> Your browser does not support the audio element.
+            <source src="./static/audios/comp/u_TfWvyYY0Y 2_audioldm2.wav" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
+          <td><audio id="teaser" controls>
+            <source src="./static/audios/comp/u_TfWvyYY0Y.wav" type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src="./static/audios/comp/u_TfWvyYY0Y.flac" type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td  style="width: 500px;">MusicGEN and Audio-LDM2 miss instruments like electric bass guitar and keyboard instruments</td>
         </tr>
         <tr>
-          <td>This is an opening theme for a TV series. It is an instrumental piece. The main theme is being played by a loud brass section. There is a groovy synth bass line playing. The rhythmic background consists of a strong electronic drum beat. The atmosphere is energetic. This piece could be used in lifting samples for beat-making.</td>
+          <td style="width: 1000px;">This music is an intense instrumental. The tempo is medium with hard hitting drums, ceremonial big drums, amplified piano and violin harmony. The music is syncopated and intense. It is like a background score for a movie.</td>
           <td><audio id="teaser" controls>
-            <source src=
-                    
-                    
-                    "./static/audios/infilling/inp_LCzldLY3E4g.wav"
-                    type="audio/wav"> Your browser does not support the audio element.
+            <source src="./static/audios/comp/si_IAMPOXlQ_musicgen.wav" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
-            <source src=
-                    
-                    
-                    "./static/audios/infilling/LCzldLY3E4g.wav"
-                    type="audio/wav"> Your browser does not support the audio element.
+            <source src="./static/audios/comp/si_IAMPOXlQ_audioldm2.wav" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
+          <td><audio id="teaser" controls>
+            <source src="./static/audios/comp/si_IAMPOXlQ.wav" type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src="./static/audios/comp/si_IAMPOXlQ.flac" type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td style="width: 500px;">MusicFlow captures <em>ceremonial hard-hitting drums</em> better than others. MusicFlow captures the concept of movie background score in a similar manner to the ground-truth, where the music score peaks towards the end.</td>
         </tr>
         <tr>
-          <td>This song is an instrumental. The tempo is medium with lively trumpets, trombone ,enthusiastic percussion like the snare, cymbals and bass drum, tambourine , an intense and bright string harmony of violins, viola and cello. The music is intense, serious and is gradually building up. This is an Orchestral piece.</td>
+          <td style="width: 700px;">This music is an Indian Classical Instrumental. The tempo is medium fast with an ensemble of a lively violin, melodic flute and rhythmic accompaniment of the Indian percussion gadam and mridangam . The music uses ragas, talas and Sruti to form a harmony. It is classic, lively, rhythmic, engaging and enthralling.</td>
           <td><audio id="teaser" controls>
-            <source src=
-                    
-                    
-                    "./static/audios/infilling/inp_vOAXAoHtl7o.wav"
-                    type="audio/wav"> Your browser does not support the audio element.
+            <source src="./static/audios/comp/xyco-5DC_K8_musicgen.wav" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
-            <source src=
-                    
-                    
-                    "./static/audios/infilling/vOAXAoHtl7o.wav"
-                    type="audio/wav"> Your browser does not support the audio element.
+            <source src="./static/audios/comp/xyco-5DC_K8_audioldm2.wav" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
+          <td><audio id="teaser" controls>
+            <source src="./static/audios/comp/xyco-5DC_K8.wav" type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src="./static/audios/comp/xyco-5DC_K8.flac" type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td style="width: 500px;">AudioLDM2 does not capture ragas or the melodic flute. MusicGen generates bagpipes/harmonium instead of flute. MusicFlow is again, most similar to the ground-truth, capturing rich ragas from flute, violin and mridangam.</td>
         </tr>
       </tbody>
     </table>
