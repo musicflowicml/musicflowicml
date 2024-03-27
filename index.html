@@ -60,7 +60,7 @@
       text-align: left;
       align-items: center;
     }
-    audio {width: 50px;}
+    audio {width: 100px;}
   </style>
   
 </head>
@@ -215,13 +215,13 @@
     <!-- Paper video. -->
     <div class="hero-body" align="center">
       <h2 class="subtitle has-text-centered">
-        <b>Text description:</b> This music is an energetic Rock and Roll instrumental. The tempo is fast with animated, infectious drumming, lively trumpets and tambourine beats. The music is upbeat, pulsating, thumping, vivacious, bright, with a perky dance groove. This music is Rock and Roll.
+        <b>Text description:</b> This music is instrumental. The tempo is medium fast with a melodious keyboard harmony, steady drumming, groovy bass, synthesiser arrangements , electronically articulated sounds and tambourine beats . The melody is harmonious, pleasant, uncomplicated and well layered. This music is Synth Pop.
       </h2>
       <audio id="teaser" controls>
         <source src=
                 
                 
-                "./static/audios/OH2SQhJqZDg.wav"
+                "./static/audios/HNf9eHqDT1A.wav"
                 type="audio/wav"> Your browser does not support the audio element.
       </audio>
     </div>
@@ -313,12 +313,12 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">MusicFlow: Text to Music <b>Continuation</b></h2>
+    <h2 class="title is-3 has-text-centered">Text to Music <b>Continuation</b></h2>
     <!-- Paper video. -->
     <table>
       <thead>
         <tr>
-          <th>Text description</th><th>Music Prompt</th><th>Completed music piece (first 3 seconds are used as the prompt)</th>
+          <th>Text description</th><th>Music Prompt (first 3 seconds are used as the prompt)</th><th>AudioLDM continuation</th><th style="color: blue;">MusicFlow (ours) continuation</th>
         </tr>
       </thead>
       <tbody>
@@ -329,6 +329,13 @@
                     
                     
                     "./static/audios/cont/inp_cYRsnYEPIiM.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/cYRsnYEPIiM_30000_40000.flac"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
@@ -352,6 +359,13 @@
             <source src=
                     
                     
+                    "./static/audios/cont/eM0PkfqGmIE_30000_40000.flac"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
                     "./static/audios/cont/eM0PkfqGmIE.wav"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
@@ -363,6 +377,13 @@
                     
                     
                     "./static/audios/cont/inp_jZkHpNnXLB0.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/cont/jZkHpNnXLB0_160000_170000.flac"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
@@ -381,29 +402,36 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">MusicFlow: Text to Music <b>Infilling</b></h2>
+    <h2 class="title is-3 has-text-centered">Text to Music <b>Infilling</b></h2>
     <!-- Paper video. -->
     <table>
       <thead>
         <tr>
-          <th>Text description</th><th>Music Prompt</th><th>Completed music piece (first and last 1.5 seconds are used as the prompt)</th>
+          <th>Text description</th><th>Music Prompt (first and last 1.5s are used as the prompt)</th><th>AudioLDM infilling</th><th style="color: blue;">MusicFlow (ours) infilling</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>An acoustic drum is playing a faster groove along with a bassline and a harmonica playing a chord on the offbeat and in a lower key. A e-guitar is playing a melody in the mid range. There are some background noises that remind me of someone brushing his/her teeth. This song may be playing live at a bar.</td>
+          <td>This is a Nepali music piece. There is a string instrument and a local flute playing the melody. The rhythmic background is provided by percussion. It has a vibrant, dreamy feeling to it. This piece could be used in a dream sequence of a movie or TV show taking place in South Asian countries.</td>
           <td><audio id="teaser" controls>
             <source src=
                     
                     
-                    "./static/audios/infilling/inp_KdNhYvN4Xoo.wav"
+                    "./static/audios/infilling/inp_h0-6U948u7Y.wav"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
             <source src=
                     
                     
-                    "./static/audios/infilling/KdNhYvN4Xoo.wav"
+                    "./static/audios/infilling/h0-6U948u7Y_50000_60000.flac"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/h0-6U948u7Y.wav"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
         </tr>
@@ -414,6 +442,13 @@
                     
                     
                     "./static/audios/infilling/inp_LCzldLY3E4g.wav"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
+                    "./static/audios/infilling/LCzldLY3E4g_30000_40000.flac"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
           <td><audio id="teaser" controls>
@@ -437,6 +472,13 @@
             <source src=
                     
                     
+                    "./static/audios/infilling/vOAXAoHtl7o_150000_160000.flac"
+                    type="audio/wav"> Your browser does not support the audio element.
+          </audio></td>
+          <td><audio id="teaser" controls>
+            <source src=
+                    
+                    
                     "./static/audios/infilling/vOAXAoHtl7o.wav"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
@@ -448,7 +490,7 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Comparisons with recent work</h2>
+    <h2 class="title is-3 has-text-centered">Comparisons with recent work: Text-to-Music Generation</h2>
     <!-- Paper video. -->
     <table>
       <thead>
@@ -487,7 +529,7 @@
           <td><audio id="teaser" controls>
             <source src="./static/audios/comp/si_IAMPOXlQ.flac" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
-          <td style="width: 500px;">MusicFlow captures <em>ceremonial hard-hitting drums</em> better than others. MusicFlow captures the concept of movie background score in a similar manner to the ground-truth, where the music score peaks towards the end.</td>
+          <td style="width: 500px;">MusicFlow captures <em>ceremonial hard-hitting drums</em> better than others. MusicFlow captures the concept of movie background score, where the music score peaks towards the end.</td>
         </tr>
         <tr>
           <td style="width: 700px;">This music is an Indian Classical Instrumental. The tempo is medium fast with an ensemble of a lively violin, melodic flute and rhythmic accompaniment of the Indian percussion gadam and mridangam . The music uses ragas, talas and Sruti to form a harmony. It is classic, lively, rhythmic, engaging and enthralling.</td>
@@ -503,7 +545,7 @@
           <td><audio id="teaser" controls>
             <source src="./static/audios/comp/xyco-5DC_K8.flac" type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
-          <td style="width: 500px;">AudioLDM2 does not capture ragas or the melodic flute. MusicGen generates bagpipes/harmonium instead of flute. MusicFlow is again, most similar to the ground-truth, capturing rich ragas from flute, violin and mridangam.</td>
+          <td style="width: 500px;">AudioLDM2 does not capture ragas or the melodic flute. MusicGen generates bagpipes/harmonium instead of flute. MusicFlow captures rich ragas from flute, violin and mridangam.</td>
         </tr>
       </tbody>
     </table>
@@ -538,7 +580,7 @@
                     "./static/audios/sH_nDqYVq5E.flac"
                     type="audio/wav"> Your browser does not support the audio element.
           </audio></td>
-          <td>Model is unable to decipher what instrument sounds to play</td>
+          <td>Model is unable to generate clarinet with very long notes</td>
         </tr>
         <tr>
           <td>This music is instrumental. The tempo is slow with an electronic keyboard playing a simple, high pitched harmony. There are sounds in the background like whirring, whooshing and clicking. The music is not very clear as the audio clip is muffled, but it sounds like video game music or the music Ina child’s electronic toy.</td>
